@@ -2,6 +2,7 @@ package com.jay.easykeyboard;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.inputmethodservice.Keyboard;
 import android.os.SystemClock;
@@ -35,6 +36,8 @@ public class SystemKeyboard extends FrameLayout {
     private static final String TAG = "SystemKeyboard";
     private MyKeyboardView keyboardView;
     private Drawable keyDrawable;
+    private Drawable someOneKeyDrawable;
+    private int someOneKeyTextColor;
     private Keyboard mKeyboard;
     private SystemOnKeyboardActionListener actionListener;
     private int xmlLayoutResId;
@@ -56,6 +59,12 @@ public class SystemKeyboard extends FrameLayout {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SystemKeyboard);
         if (a.hasValue(R.styleable.SystemKeyboard_keyDrawable)) {
             keyDrawable = a.getDrawable(R.styleable.SystemKeyboard_keyDrawable);
+        }
+        if (a.hasValue(R.styleable.SystemKeyboard_someOneKeyDrawable)) {
+            someOneKeyDrawable = a.getDrawable(R.styleable.SystemKeyboard_someOneKeyDrawable);
+        }
+        if (a.hasValue(R.styleable.SystemKeyboard_someOneKeyTextColor)) {
+            someOneKeyTextColor = a.getColor(R.styleable.SystemKeyboard_someOneKeyTextColor, Color.BLACK);
         }
         if (a.hasValue(R.styleable.SystemKeyboard_xmlLayoutResId)) {
             xmlLayoutResId = a.getResourceId(R.styleable.SystemKeyboard_xmlLayoutResId, 0);
@@ -79,12 +88,17 @@ public class SystemKeyboard extends FrameLayout {
         if (null != keyDrawable) {
             keyboardView.setKeyDrawable(keyDrawable);
         }
+        if (null != someOneKeyDrawable) {
+            keyboardView.setSomeOneKeyDrawable(someOneKeyDrawable);
+        }
+
+        keyboardView.setSomeOneTextColor(someOneKeyTextColor);
+
         actionListener = new SystemOnKeyboardActionListener();
         keyboardView.setOnKeyboardActionListener(actionListener);
         this.removeAllViews();
         this.addView(keyboardView);
     }
-
 
     private void randomKey() {
         List<Keyboard.Key> keyList = mKeyboard.getKeys();
@@ -160,6 +174,16 @@ public class SystemKeyboard extends FrameLayout {
         this.keyDrawable = keyDrawable;
         if (null != keyboardView)
             keyboardView.setKeyDrawable(keyDrawable);
+    }
+
+    /**
+     * 设置按压背景，线条粗细等
+     * @param keyDrawable d
+     */
+    public void setSomeOneKeyDrawable(Drawable keyDrawable) {
+        this.keyDrawable = keyDrawable;
+        if (null != keyboardView)
+            keyboardView.setSomeOneKeyDrawable(keyDrawable);
     }
 
 

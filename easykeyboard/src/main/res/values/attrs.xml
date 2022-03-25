@@ -3,9 +3,13 @@
     <attr name="xmlLayoutResId" format="reference"/>
     <attr name="isRandom" format="boolean"/>
     <attr name="keyDrawable" format="reference"/>
+    <attr name="someOneKeyDrawable" format="reference" />
+    <attr name="someOneKeyTextColor" format="color" />
     <declare-styleable name="SystemKeyboard">
         <attr name="xmlLayoutResId"/>
         <attr name="keyDrawable"/>
+        <attr name="someOneKeyDrawable"/>
+        <attr name="someOneKeyTextColor" />
         <attr name="isRandom"/>
     </declare-styleable>
     <declare-styleable name="SystemKeyBoardEditText">

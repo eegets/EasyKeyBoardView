@@ -1,7 +1,11 @@
 package com.example.keybord.keyborddemo;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -37,6 +41,8 @@ public class SystemKeyboardActivity extends AppCompatActivity implements View.On
         Button btnChangeUi = findViewById(R.id.btn_change_ui);
         EditText edit1 = findViewById(R.id.edit);
         EditText edit2 = findViewById(R.id.edit2);
+
+
         mKeyboard.setEditText(edit1); //用于绑定EditText,如果切换了EditText，请务必设置此方法
         mKeyboard.setOnKeyboardActionListener(new KeyBoardActionListener() {
             @Override

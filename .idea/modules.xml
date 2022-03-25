@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/EasyKeyBoardView.iml" filepath="$PROJECT_DIR$/.idea/modules/EasyKeyBoardView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/EasyKeyBoardView.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/EasyKeyBoardView.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/easykeyboard/EasyKeyBoardView.easykeyboard.iml" filepath="$PROJECT_DIR$/.idea/modules/easykeyboard/EasyKeyBoardView.easykeyboard.iml" />
+    </modules>
+  </component>
+</project>
