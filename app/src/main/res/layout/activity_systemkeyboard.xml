@@ -19,6 +19,12 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/edit1"
+            android:hint="点击开始输入1111111"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="点我弹出原生键盘"
             android:id="@+id/edit2"
             />

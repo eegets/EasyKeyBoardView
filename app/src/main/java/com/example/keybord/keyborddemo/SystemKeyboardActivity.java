@@ -39,11 +39,31 @@ public class SystemKeyboardActivity extends AppCompatActivity implements View.On
         setContentView(R.layout.activity_systemkeyboard);
         mKeyboard = findViewById(R.id.systemkeyboard);
         Button btnChangeUi = findViewById(R.id.btn_change_ui);
-        EditText edit1 = findViewById(R.id.edit);
+        final EditText edit = findViewById(R.id.edit);
+        final EditText edit1 = findViewById(R.id.edit1);
         EditText edit2 = findViewById(R.id.edit2);
 
 
-        mKeyboard.setEditText(edit1); //用于绑定EditText,如果切换了EditText，请务必设置此方法
+        edit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (b) {
+
+                    mKeyboard.setEditText(edit); //用于绑定EditText,如果切换了EditText，请务必设置此方法
+                }
+            }
+        });
+
+        edit1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (b) {
+
+                    mKeyboard.setEditText(edit1); //用于绑定EditText,如果切换了EditText，请务必设置此方法
+                }
+            }
+        });
+
         mKeyboard.setOnKeyboardActionListener(new KeyBoardActionListener() {
             @Override
             public void onComplete() {
@@ -66,8 +86,8 @@ public class SystemKeyboardActivity extends AppCompatActivity implements View.On
             }
         });
 
-        edit1.setOnFocusChangeListener(this);
-        edit2.setOnFocusChangeListener(this);
+//        edit1.setOnFocusChangeListener(this);
+//        edit2.setOnFocusChangeListener(this);
 
         btnChangeUi.setOnClickListener(new View.OnClickListener() {
             @Override
